@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -136,8 +137,6 @@ public class Paddle : MonoBehaviour
     // 블럭이 부숴질 때
     public void BlockBreak(GameObject Col, Transform ColTr, Animator ColAni)
     {
-
-
         // 벽돌 부서지는 애니메이션
         ColAni.SetTrigger("Break");
         S_Break.Play();
@@ -189,14 +188,8 @@ public class Paddle : MonoBehaviour
     void Clear()
     {
         StopAllCoroutines();
-        StartCoroutine("Item_BigOrSmall", true);
-        StartCoroutine("Item_SlowBall", true);
-        StartCoroutine("Item_FireBall", true);
-        StartCoroutine("Item_Magnet", true);
-        StartCoroutine("Item_Gun", true);
-
-        for (int i = 0; i < 3; i++) Ball[i].SetActive(false);
         PaddleSr.enabled = false;
+        SceneManager.LoadScene("Scene4");
     }
 }
 

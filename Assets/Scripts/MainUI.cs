@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MainUI : MonoBehaviour
 {
 
-
     public void OnClickStartBtn()
     {
         SceneManager.LoadScene("Scene1");
@@ -31,4 +30,19 @@ public class MainUI : MonoBehaviour
     {
         SceneManager.LoadScene("Scene3");
     }
+
+    public void OnClickblockdoorBtn()
+    {
+        SceneManager.LoadScene("Scene4");
+    }
+
+    public void OnClickKeyBtn()
+    {
+        SceneManager.LoadScene("Window");
+    }
+    public void OnClickMemoBtn()
+    {
+        PopupSystem.instance.OpenPopUp(() => { });
+    }
 }
+
