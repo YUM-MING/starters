@@ -44,5 +44,15 @@ public class MainUI : MonoBehaviour
     {
         PopupSystem.instance.OpenPopUp(() => { });
     }
+
+    public void OnClickKeypadBtn()
+    {
+        PopupSystem.instance.OpenKeypad(() => { });
+    }
+
+    public void OnClickPillBtn()
+    {
+        SceneManager.LoadScene("Credit");
+    }
 }
 

@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopupSystem : MonoBehaviour
 {
     public GameObject popup;
+    public GameObject keypad;
     Animator anim;
+    Animator anim2;
 
   
 
@@ -16,12 +20,14 @@ public class PopupSystem : MonoBehaviour
     private void Start()
     {
         popup.SetActive(false);
+        keypad.SetActive(false);
     }
 
     private void Awake()
     {
         instance = this;
         anim = popup.GetComponent<Animator>();
+        anim2 = keypad.GetComponent<Animator>();
     }
 
     private void Update()
@@ -33,6 +39,14 @@ public class PopupSystem : MonoBehaviour
                 popup.SetActive(false);
             }
         }
+
+        if (anim2.GetCurrentAnimatorStateInfo(0).IsName("Close"))
+        {
+            if (anim2.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1)
+            {
+                keypad.SetActive(false);
+            }
+        }
     }
 
     public void OpenPopUp(
@@ -40,6 +54,13 @@ public class PopupSystem : MonoBehaviour
     {
         this.onClickCancel = onClickCancel; 
         popup.SetActive(true);
+    }
+
+    public void OpenKeypad(
+        Action onClickCancel)
+    {
+        this.onClickCancel = onClickCancel;
+        keypad.SetActive(true);
     }
 
 
@@ -50,10 +71,16 @@ public class PopupSystem : MonoBehaviour
             onClickCancel();
         }
         ClosePopup();
+        CloseKeypad();
     }
 
     void ClosePopup()
     {
         anim.SetTrigger("Close");
+    }
+
+    void CloseKeypad()
+    {
+        anim2.SetTrigger("Close");
     }
 }
