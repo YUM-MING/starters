@@ -283,7 +283,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9844ca209f6277641a7bf6d45566a5ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce72c50123166c3449b7b601fe244f3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -318,9 +318,9 @@ MonoBehaviour:
   expandDuration: 2
   moveDuration: 2
   startSize: {x: 496.1781, y: 496.1781}
-  endSize: {x: 6671.952, y: 3833.614}
+  endSize: {x: 10000, y: 8000}
   startPosition: {x: -873, y: -363, z: 0}
-  endPosition: {x: -213, y: 963, z: 0}
+  endPosition: {x: -1200, y: 400, z: 0}
 --- !u!1 &286276123
 GameObject:
   m_ObjectHideFlags: 0
